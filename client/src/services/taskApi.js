@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api/tasks";
-const PROJECT_API_BASE_URL = "http://localhost:5000/api/projects";
+const API_ROOT = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+const API_BASE_URL = `${API_ROOT}/api/tasks`;
+const PROJECT_API_BASE_URL = `${API_ROOT}/api/projects`;
 const tokenKey = "taskflow_token";
 const userKey = "taskflow_user";
 

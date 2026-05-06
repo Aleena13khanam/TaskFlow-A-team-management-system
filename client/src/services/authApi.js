@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api/auth";
+const API_ROOT = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+const API_BASE_URL = `${API_ROOT}/api/auth`;
 
 export const registerUser = async (payload) => {
   const response = await axios.post(`${API_BASE_URL}/register`, payload);
