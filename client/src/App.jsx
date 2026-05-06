@@ -680,11 +680,9 @@ function App() {
                       {member.email ? `• ${member.email}` : ""}
                     </small>
                   </span>
-                  {isProjectAdmin ? (
-                    <div className="member-actions">
-                      {isAdminMember ? (
-                        <span className="admin-badge">Admin</span>
-                      ) : (
+                  <div className="member-actions">
+                    {isAdminMember ? <span className="admin-badge">Admin</span> : null}
+                    {isProjectAdmin && !isAdminMember && !isCurrentUserMember ? (
                         <button
                           type="button"
                           className="danger-btn"
@@ -714,9 +712,8 @@ function App() {
                         >
                           Remove
                         </button>
-                      )}
-                    </div>
-                  ) : null}
+                    ) : null}
+                  </div>
                 </div>
                 );
               })}

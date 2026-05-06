@@ -195,6 +195,19 @@ body {
   color: var(--tf-subtle-text);
 }
 
+:root[data-theme="dark"] .stat-chip {
+  background: #1b2a43;
+  border-color: #30486f;
+}
+
+:root[data-theme="dark"] .stat-chip span {
+  color: #f3f7ff;
+}
+
+:root[data-theme="dark"] .stat-chip small {
+  color: #bccbe5;
+}
+
 .layout-grid {
   display: grid;
   grid-template-columns: minmax(280px, 35%) minmax(0, 65%);
@@ -213,10 +226,11 @@ body {
   bottom: 12px;
   width: min(320px, calc(30vw - 12px));
   box-shadow: 0 6px 14px rgba(20, 33, 53, 0.04);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 14px;
   max-height: none;
-  overflow-y: auto;
+  overflow: hidden;
   overflow-x: hidden;
 }
 
@@ -246,6 +260,11 @@ body {
 .sidebar-section {
   padding-top: 10px;
   border-top: 1px solid var(--tf-light-gray);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
 }
 
 .sidebar-nav-item {
@@ -301,7 +320,17 @@ body {
   display: grid;
   gap: 8px;
   max-height: none;
-  overflow: hidden;
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.project-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .member-manager-list {
@@ -354,6 +383,59 @@ body {
   border-color: #d7d9fe;
   color: var(--tf-dark-slate);
   border-left: 4px solid var(--tf-flow-purple-start);
+}
+
+:root[data-theme="dark"] .search-chip input {
+  background: #16233a;
+  border-color: #2b3b56;
+  color: #eaf1ff;
+}
+
+:root[data-theme="dark"] .search-chip input::placeholder {
+  color: #9fb0cd;
+}
+
+:root[data-theme="dark"] .sidebar-nav-item:hover {
+  background: #17263f;
+}
+
+:root[data-theme="dark"] .sidebar-nav-item-active {
+  background: #24395e;
+  border-color: #38507a;
+  color: #eef4ff;
+}
+
+:root[data-theme="dark"] .sidebar-nav-item-active span {
+  color: #d8e4ff;
+}
+
+:root[data-theme="dark"] .project-item:hover {
+  background: #182843;
+}
+
+:root[data-theme="dark"] .project-item-active {
+  background: #24395e;
+  border-color: #3a5686;
+  color: #eef4ff;
+}
+
+:root[data-theme="dark"] .project-item small {
+  color: #b9cae7;
+}
+
+:root[data-theme="dark"] .profile-account-btn {
+  background: #1a2a45;
+  border-color: #2f456c;
+  color: #e9f0ff;
+}
+
+:root[data-theme="dark"] .profile-account-btn:hover {
+  background: #22365a;
+}
+
+:root[data-theme="dark"] .column-count {
+  background: #213453;
+  color: #eaf1ff;
 }
 
 .invite-form {
@@ -664,6 +746,14 @@ button:active {
 
 .datetime-chip {
   min-width: 180px;
+}
+
+:root[data-theme="dark"] .datetime-chip span {
+  color: #f3f7ff;
+}
+
+:root[data-theme="dark"] .datetime-chip small {
+  color: #c7d5ee;
 }
 
 .danger-btn {
@@ -1028,7 +1118,7 @@ button:active {
   width: min(520px, calc(100vw - 28px));
   max-height: calc(100vh - 50px);
   overflow: auto;
-  background: #fff;
+  background: var(--tf-card-white);
   border: 1px solid var(--tf-light-gray);
   border-radius: 14px;
   box-shadow: 0 14px 30px var(--tf-shadow);
@@ -1069,6 +1159,21 @@ button:active {
   place-items: center;
   background: #e2e8f0;
   color: #334155;
+}
+
+:root[data-theme="dark"] .task-details-panel {
+  background: #13233b;
+  border-color: #2f456c;
+}
+
+:root[data-theme="dark"] .task-details-panel h2,
+:root[data-theme="dark"] .task-details-panel h3 {
+  color: #edf3ff;
+}
+
+:root[data-theme="dark"] .panel-close {
+  background: #243a5f;
+  color: #e6efff;
 }
 
 .task-details-overlay {
@@ -1167,6 +1272,12 @@ button:active {
   background: #fff;
   padding: 16px;
   border-radius: 10px;
+}
+
+:root[data-theme="dark"] .empty-state {
+  background: #1a2941;
+  border: 1px solid #2d456b;
+  color: #eaf1ff;
 }
 
 .auth-shell {
@@ -1353,6 +1464,7 @@ button:active {
     position: static;
     width: 100%;
     max-height: none;
+    overflow: visible;
   }
 
   .app-shell {
